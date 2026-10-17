@@ -24,3 +24,8 @@ npm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
+
+# One-off helper scripts
+push-change.mjs
+audit-staged.mjs
+commit.mjs
