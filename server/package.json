@@ -1,0 +1,19 @@
+{
+  "name": "parth-healthcare-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API for Parth Healthcare & Hospital, Julana",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "seed": "node src/seed.js",
+    "reset": "node src/seed.js --force"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0"
+  }
+}

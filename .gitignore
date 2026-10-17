@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+client/dist/
+client/.vite/
+
+# Firebase / secrets - never commit real credentials
+.env
+.env.local
+.env.*.local
+.firebase/
+
+# Demo database - regenerate with `npm run seed` in server/
+server/data/db.json
+server/data/*.tmp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

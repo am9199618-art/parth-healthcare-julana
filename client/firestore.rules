@@ -1,0 +1,62 @@
+rules_version = '2';
+
+/*
+ * Parth Healthcare & Hospital - Firestore security rules.
+ *
+ * Patient records are protected health information, so this database is
+ * CLOSED to the public: every read and write requires a signed-in staff
+ * account. There is no public read path anywhere in this file.
+ *
+ * To tighten access further (for example, only doctors may read patients, or
+ * only reception may write appointments), add role checks based on custom
+ * claims:
+ *
+ *     function hasRole(role) {
+ *       return request.auth.token.role == role;
+ *     }
+ *
+ * and set the claim with the Admin SDK or the Firebase console.
+ */
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Staff must be signed in for anything at all.
+    function isStaff() {
+      return request.auth != null;
+    }
+
+    match /patients/{id} {
+      allow read, write: if isStaff();
+    }
+
+    match /doctors/{id} {
+      allow read, write: if isStaff();
+    }
+
+    match /admissions/{id} {
+      allow read, write: if isStaff();
+    }
+
+    match /discharges/{id} {
+      allow read, write: if isStaff();
+    }
+
+    match /appointments/{id} {
+      allow read, write: if isStaff();
+    }
+
+    match /treatments/{id} {
+      allow read, write: if isStaff();
+    }
+
+    // Monotonic id counters (PAT-1001, ADM-5001, ...).
+    match /meta/{id} {
+      allow read, write: if isStaff();
+    }
+
+    // Default deny for anything added later.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

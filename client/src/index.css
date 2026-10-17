@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/*
+  Parth Healthcare & Hospital - theme tokens.
+  Teal carries the clinical identity, blue supports navigation and info states.
+*/
+@theme {
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-200: #99f6e4;
+  --color-brand-300: #5eead4;
+  --color-brand-400: #2dd4bf;
+  --color-brand-500: #14b8a6;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-brand-800: #115e59;
+  --color-brand-900: #134e4a;
+
+  --color-navy-50: #eff6ff;
+  --color-navy-100: #dbeafe;
+  --color-navy-200: #bfdbfe;
+  --color-navy-500: #3b82f6;
+  --color-navy-600: #2563eb;
+  --color-navy-700: #1d4ed8;
+  --color-navy-800: #1e40af;
+  --color-navy-900: #1e3a8a;
+
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-slate-100 text-slate-800 font-sans antialiased;
+  }
+
+  /* Keep focus rings visible for keyboard users on every interactive element. */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+}
+
+@layer components {
+  /* Subtle striped background used behind the login / landing panel. */
+  .bg-medical {
+    background-image:
+      radial-gradient(circle at 15% 20%, rgb(20 184 166 / 0.12), transparent 45%),
+      radial-gradient(circle at 85% 10%, rgb(59 130 246 / 0.14), transparent 45%);
+  }
+}
+
+/* Slim scrollbar for the long tables. */
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-300;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
