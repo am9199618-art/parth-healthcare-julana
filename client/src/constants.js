@@ -18,9 +18,12 @@ export const HOSPITAL_FALLBACK = {
  * Firebase account. The email is not a secret (it is public in any Firebase
  * web app), but the password deliberately lives only in Firebase - never in
  * this file - so it cannot leak through the public GitHub repository.
+ *
+ * To point at a different account, change ADMIN_EMAIL to the address used in
+ * Firebase console > Authentication > Users, then redeploy.
  */
 export const ADMIN_USERNAME = "admin";
-export const ADMIN_EMAIL = "admin@parthhealthcare.in";
+export const ADMIN_EMAIL = "am9199618@gmail.com";
 
 export const BED_TYPES = ["General", "Semi-Private", "Private", "Deluxe", "ICU", "Maternity"];
 

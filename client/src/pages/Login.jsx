@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import { useAuth } from "../firebase/auth.jsx";
-import { backend } from "../api/index.js";
 import { Button, Field, Input, Spinner } from "../components/ui.jsx";
 import { HOSPITAL_FALLBACK, ADMIN_USERNAME, ADMIN_EMAIL } from "../constants.js";
 
@@ -12,7 +12,7 @@ import { HOSPITAL_FALLBACK, ADMIN_USERNAME, ADMIN_EMAIL } from "../constants.js"
  * never stored in this app.
  */
 export default function Login() {
-  const { login, initialising, configured } = useAuth();
+  const { user, login, initialising, configured } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -25,6 +25,10 @@ export default function Login() {
       </div>
     );
   }
+
+  // Already signed in - go straight to the dashboard instead of leaving the
+  // user staring at the login form.
+  if (user) return <Navigate to="/" replace />;
 
   async function handleSubmit(event) {
     event.preventDefault();
