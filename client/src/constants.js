@@ -11,6 +11,17 @@ export const HOSPITAL_FALLBACK = {
   email: "care@parthhealthcare.in",
 };
 
+/**
+ * Single administrator account.
+ *
+ * Staff type "admin" as the username; the app maps it to the underlying
+ * Firebase account. The email is not a secret (it is public in any Firebase
+ * web app), but the password deliberately lives only in Firebase - never in
+ * this file - so it cannot leak through the public GitHub repository.
+ */
+export const ADMIN_USERNAME = "admin";
+export const ADMIN_EMAIL = "admin@parthhealthcare.in";
+
 export const BED_TYPES = ["General", "Semi-Private", "Private", "Deluxe", "ICU", "Maternity"];
 
 export const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];

@@ -94,7 +94,7 @@ export default function Layout({ children }) {
   const location = useLocation();
 
   const closeOnMobile = () => setMobileOpen(false);
-  const staffName = user?.displayName || user?.email || "Staff";
+  const staffName = "Administrator";
 
   const sidebar = (
     <div className="flex h-full flex-col">
