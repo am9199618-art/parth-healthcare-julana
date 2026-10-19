@@ -42,6 +42,19 @@
   --color-navy-800: #1e40af;
   --color-navy-900: #1e3a8a;
 
+  /* Gold - used for the side navigation panel. */
+  --color-gold-50: #fdfaef;
+  --color-gold-100: #faf1d3;
+  --color-gold-200: #f3e0a8;
+  --color-gold-300: #e9c875;
+  --color-gold-400: #dfae4a;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b8942b;
+  --color-gold-700: #967322;
+  --color-gold-800: #7a5c20;
+  --color-gold-900: #674d1f;
+  --color-gold-950: #3d2c0d;
+
   /* Card / panel surface. Overridden under .dark below. */
   --color-surface: #ffffff;
 

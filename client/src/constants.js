@@ -1,13 +1,14 @@
 /** Used until /api/meta responds, so the shell never renders empty. */
 export const HOSPITAL_FALLBACK = {
-  name: "Parth Healthcare & Hospital",
-  addressLine: "Main Hospital Road, Julana",
+  name: "Parth Life Care Hospital",
+  addressLine: "Main Hospital Road",
   city: "Julana",
-  district: "Jhajjar",
+  district: "Jind",
   state: "Haryana",
-  pincode: "124507",
-  phone: "+91 98120 45678",
-  emergency: "108",
+  pincode: "126111",
+  phone: "9466317930",
+  emergency: "9466317930",
+  emergencyNote: "24x7 Emergency - Dr. Surrender",
   email: "care@parthhealthcare.in",
 };
 

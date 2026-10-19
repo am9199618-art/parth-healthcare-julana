@@ -140,8 +140,8 @@ export default function Layout({ children }) {
       <div className="flex items-center gap-3 px-5 py-5">
         <Logo />
         <div className="min-w-0">
-          <p className="truncate text-sm font-bold text-white">Parth Healthcare</p>
-          <p className="truncate text-xs text-brand-200">&amp; Hospital, Julana</p>
+          <p className="truncate text-sm font-bold text-gold-50">Parth Life Care</p>
+          <p className="truncate text-xs text-gold-100/80">Hospital, Julana</p>
         </div>
       </div>
 
@@ -155,8 +155,8 @@ export default function Layout({ children }) {
             className={({ isActive }) =>
               `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
                 isActive
-                  ? "bg-brand-600 text-white shadow-sm"
-                  : "text-brand-100/80 hover:bg-white/10 hover:text-white"
+                  ? "bg-gold-500 text-gold-950 shadow-sm"
+                  : "text-gold-50/85 hover:bg-gold-700/70 hover:text-gold-50"
               }`
             }
           >
@@ -168,10 +168,10 @@ export default function Layout({ children }) {
         ))}
       </nav>
 
-      <div className="border-t border-white/10 px-5 py-4 text-xs text-brand-100/70">
-        <p className="font-semibold text-brand-100">24x7 Emergency</p>
-        <p className="mt-0.5">Helpline {hospital.emergency}</p>
-        <p className="mt-0.5">{hospital.phone}</p>
+      <div className="border-t border-gold-500/30 px-5 py-4 text-xs text-gold-100/85">
+        <p className="font-semibold text-gold-50">24x7 Emergency</p>
+        <p className="mt-0.5">{hospital.emergencyNote?.replace(/^24x7 Emergency\s*-\s*/i, "") || "Helpline"}</p>
+        <p className="mt-0.5 font-semibold text-gold-50">{hospital.emergency}</p>
       </div>
     </div>
   );
@@ -179,7 +179,7 @@ export default function Layout({ children }) {
   return (
     <div className="min-h-screen lg:flex">
       {/* Desktop sidebar */}
-      <aside className="hidden w-64 shrink-0 bg-brand-900 lg:block">
+      <aside className="hidden w-64 shrink-0 bg-gradient-to-b from-gold-700 to-gold-900 lg:block">
         <div className="sticky top-0 h-screen">{sidebar}</div>
       </aside>
 
@@ -192,7 +192,7 @@ export default function Layout({ children }) {
             className="absolute inset-0 bg-slate-900/50"
             onClick={closeOnMobile}
           />
-          <aside className="absolute inset-y-0 left-0 w-64 bg-brand-900 shadow-xl">
+          <aside className="absolute inset-y-0 left-0 w-64 bg-gradient-to-b from-gold-700 to-gold-900 shadow-xl">
             <div className="h-full">{sidebar}</div>
           </aside>
         </div>

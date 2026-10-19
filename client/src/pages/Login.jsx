@@ -124,7 +124,10 @@ export default function Login() {
         </div>
 
         <p className="mt-4 text-center text-xs text-slate-400">
-          24x7 Emergency: {HOSPITAL_FALLBACK.emergency} &middot; {HOSPITAL_FALLBACK.phone}
+          {HOSPITAL_FALLBACK.emergencyNote || "24x7 Emergency"}:{" "}
+          <span className="font-semibold text-slate-600 dark:text-slate-300">
+            {HOSPITAL_FALLBACK.emergency}
+          </span>
         </p>
       </div>
     </div>

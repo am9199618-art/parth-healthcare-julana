@@ -6,6 +6,7 @@ dist/
 *.log
 .DS_Store
 
-# local admin tooling (secrets-adjacent, not for the repo)
-client/check-login.mjs
-client/set-admin-password.mjs
+# Local admin tooling (secrets-adjacent, not for the repo).
+# Paths are relative to this file's folder.
+check-login.mjs
+set-admin-password.mjs

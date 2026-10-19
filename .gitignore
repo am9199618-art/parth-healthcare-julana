@@ -29,3 +29,4 @@ Thumbs.db
 push-change.mjs
 audit-staged.mjs
 commit.mjs
+do-commit.mjs
