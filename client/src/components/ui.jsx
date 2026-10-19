@@ -8,7 +8,7 @@ const BUTTON_VARIANTS = {
   primary:
     "bg-brand-600 text-white shadow-sm hover:bg-brand-700 active:bg-brand-800 disabled:bg-brand-300",
   secondary:
-    "bg-white text-slate-700 ring-1 ring-slate-300 shadow-sm hover:bg-slate-50 active:bg-slate-100",
+    "bg-surface text-slate-700 ring-1 ring-slate-300 shadow-sm hover:bg-slate-50 active:bg-slate-100",
   danger: "bg-rose-600 text-white shadow-sm hover:bg-rose-700 active:bg-rose-800",
   ghost: "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
   success: "bg-emerald-600 text-white shadow-sm hover:bg-emerald-700",
@@ -40,7 +40,7 @@ export const Button = forwardRef(function Button(
 
 export function Card({ className = "", children }) {
   return (
-    <section className={`rounded-xl bg-white shadow-sm ring-1 ring-slate-200 ${className}`}>
+    <section className={`rounded-xl bg-surface shadow-sm ring-1 ring-slate-200 ${className}`}>
       {children}
     </section>
   );
@@ -75,7 +75,7 @@ export function PageHeader({ title, subtitle, action }) {
 /* -------------------------------------------------------------------------- */
 
 const CONTROL =
-  "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none disabled:bg-slate-50 disabled:text-slate-500";
+  "w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-800 shadow-sm transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none disabled:bg-slate-50 disabled:text-slate-500";
 
 export function Field({ label, error, hint, required, children, className = "" }) {
   return (
@@ -129,12 +129,14 @@ export const Textarea = forwardRef(function Textarea({ className = "", rows = 3,
 /* -------------------------------------------------------------------------- */
 
 const BADGE_TONES = {
-  teal: "bg-brand-50 text-brand-700 ring-brand-200",
-  blue: "bg-navy-50 text-navy-700 ring-navy-200",
-  green: "bg-emerald-50 text-emerald-700 ring-emerald-200",
-  amber: "bg-amber-50 text-amber-700 ring-amber-200",
-  red: "bg-rose-50 text-rose-700 ring-rose-200",
-  slate: "bg-slate-100 text-slate-600 ring-slate-200",
+  teal: "bg-brand-50 text-brand-700 ring-brand-200 dark:bg-brand-500/15 dark:text-brand-300 dark:ring-brand-500/30",
+  blue: "bg-navy-50 text-navy-700 ring-navy-200 dark:bg-navy-500/15 dark:text-blue-300 dark:ring-navy-500/30",
+  green:
+    "bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-500/15 dark:text-emerald-300 dark:ring-emerald-500/30",
+  amber:
+    "bg-amber-50 text-amber-700 ring-amber-200 dark:bg-amber-500/15 dark:text-amber-300 dark:ring-amber-500/30",
+  red: "bg-rose-50 text-rose-700 ring-rose-200 dark:bg-rose-500/15 dark:text-rose-300 dark:ring-rose-500/30",
+  slate: "bg-slate-100 text-slate-600 ring-slate-200 dark:bg-white/5 dark:text-slate-300 dark:ring-white/10",
 };
 
 export function Badge({ tone = "slate", children, className = "" }) {
@@ -285,7 +287,7 @@ export function Modal({ open, onClose, title, subtitle, children, footer, size =
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-900/50 p-4 backdrop-blur-sm sm:p-8">
       <div
-        className={`w-full ${widths[size]} rounded-xl bg-white shadow-2xl`}
+        className={`w-full ${widths[size]} rounded-xl bg-surface shadow-2xl`}
         role="dialog"
         aria-modal="true"
         aria-label={title}
@@ -323,11 +325,11 @@ export function Modal({ open, onClose, title, subtitle, children, footer, size =
 
 export function StatCard({ label, value, hint, tone = "teal", icon }) {
   const tones = {
-    teal: "bg-brand-50 text-brand-700",
-    blue: "bg-navy-50 text-navy-700",
-    green: "bg-emerald-50 text-emerald-700",
-    amber: "bg-amber-50 text-amber-700",
-    red: "bg-rose-50 text-rose-700",
+    teal: "bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-300",
+    blue: "bg-navy-50 text-navy-700 dark:bg-navy-500/15 dark:text-blue-300",
+    green: "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300",
+    amber: "bg-amber-50 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300",
+    red: "bg-rose-50 text-rose-700 dark:bg-rose-500/15 dark:text-rose-300",
   };
   return (
     <Card className="p-5">

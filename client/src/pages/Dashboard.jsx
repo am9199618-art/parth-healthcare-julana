@@ -40,7 +40,7 @@ export default function Dashboard() {
           <>
             <Link
               to="/patients"
-              className="inline-flex items-center rounded-lg bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-300 transition hover:bg-slate-50"
+              className="inline-flex items-center rounded-lg bg-surface px-4 py-2 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-slate-300 transition hover:bg-slate-50"
             >
               Patient Directory
             </Link>

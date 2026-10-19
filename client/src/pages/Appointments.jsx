@@ -389,7 +389,7 @@ function BookingModal({ open, onClose, doctors, onBooked }) {
                       ? "cursor-not-allowed bg-slate-100 text-slate-400 line-through"
                       : timeSlot === slot
                         ? "bg-brand-600 text-white"
-                        : "bg-white text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50"
+                        : "bg-surface text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50"
                   }`}
                 >
                   {slot}

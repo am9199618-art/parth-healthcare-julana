@@ -75,7 +75,7 @@ export default function Login() {
           </p>
         </div>
 
-        <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+        <div className="rounded-xl bg-surface p-6 shadow-sm ring-1 ring-slate-200">
           <h2 className="text-lg font-semibold text-slate-800">Admin Login</h2>
           <p className="mt-1 mb-5 text-sm text-slate-500">Enter your details to continue.</p>
 

@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import { ToastProvider } from "./context/ToastContext.jsx";
 import { AuthProvider, useAuth } from "./firebase/auth.jsx";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { Spinner } from "./components/ui.jsx";
 
 import Login from "./pages/Login.jsx";
@@ -39,8 +40,9 @@ function RequireAuth({ children }) {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <ToastProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <ToastProvider>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route
@@ -67,7 +69,8 @@ export default function App() {
             }
           />
         </Routes>
-      </ToastProvider>
-    </AuthProvider>
+        </ToastProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }

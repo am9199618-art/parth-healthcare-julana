@@ -3,7 +3,24 @@
 /*
   Parth Healthcare & Hospital - theme tokens.
   Teal carries the clinical identity, blue supports navigation and info states.
+
+  Dark mode strategy
+  ------------------
+  Tailwind v4 compiles every utility to a CSS variable (for example
+  .text-slate-800 -> var(--color-slate-800)). So instead of sprinkling
+  `dark:` variants over every component, the whole app is re-themed by
+  re-pointing those variables inside `.dark`.
+
+  The slate scale is inverted on purpose: in dark mode the low numbers are the
+  dark backgrounds and the high numbers are the light text. That keeps every
+  existing class meaningful (bg-slate-100 stays "the page", text-slate-800
+  stays "strong text") without touching a single component.
+
+  `bg-surface` is the card/panel colour, which does not map onto the slate scale
+  because it sits between two of its steps.
 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-50: #f0fdfa;
   --color-brand-100: #ccfbf1;
@@ -25,7 +42,33 @@
   --color-navy-800: #1e40af;
   --color-navy-900: #1e3a8a;
 
+  /* Card / panel surface. Overridden under .dark below. */
+  --color-surface: #ffffff;
+
   --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Dark palette                                                               */
+/* -------------------------------------------------------------------------- */
+
+.dark {
+  /* Surfaces, from darkest to lightest */
+  --color-slate-100: #0a1120; /* page background */
+  --color-slate-50: #101a2c; /* recessed blocks, table headers */
+  --color-surface: #18223a; /* cards, modals, inputs */
+  --color-slate-200: #2c3a54; /* borders and dividers */
+  --color-slate-300: #3b4a66; /* input borders */
+
+  /* Text, from muted to strongest */
+  --color-slate-400: #6b7a94;
+  --color-slate-500: #94a3b8;
+  --color-slate-600: #c3ccdb;
+  --color-slate-700: #dde3ec;
+  --color-slate-800: #eef2f7;
+  --color-slate-900: #ffffff;
+
+  color-scheme: dark;
 }
 
 @layer base {
@@ -35,6 +78,9 @@
 
   body {
     @apply bg-slate-100 text-slate-800 font-sans antialiased;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
   /* Keep focus rings visible for keyboard users on every interactive element. */
@@ -44,7 +90,7 @@
 }
 
 @layer components {
-  /* Subtle striped background used behind the login / landing panel. */
+  /* Subtle coloured wash used behind the login panel. */
   .bg-medical {
     background-image:
       radial-gradient(circle at 15% 20%, rgb(20 184 166 / 0.12), transparent 45%),

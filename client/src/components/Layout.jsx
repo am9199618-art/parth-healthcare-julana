@@ -3,7 +3,46 @@ import { NavLink, useLocation } from "react-router-dom";
 import { HOSPITAL_FALLBACK } from "../constants.js";
 import { useMeta } from "../api/useApi.js";
 import { useAuth } from "../firebase/auth.jsx";
+import { useTheme } from "../context/ThemeContext.jsx";
 import { backend } from "../api/index.js";
+
+/** Sun / moon switch for the light and dark themes. */
+function ThemeToggle() {
+  const { isDark, toggle } = useTheme();
+
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      role="switch"
+      aria-checked={isDark}
+      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      title={isDark ? "Light theme" : "Dark theme"}
+      className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
+    >
+      {isDark ? (
+        // Moon: currently dark, click for light.
+        <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21.75 15.5A9.75 9.75 0 0110.5 3a9.75 9.75 0 1011.25 12.5z" />
+        </svg>
+      ) : (
+        // Sun: currently light, click for dark.
+        <svg
+          className="h-4.5 w-4.5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4" />
+        </svg>
+      )}
+    </button>
+  );
+}
 
 const NAV = [
   {
@@ -160,7 +199,7 @@ export default function Layout({ children }) {
       ) : null}
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
+        <header className="sticky top-0 z-30 border-b border-slate-200 bg-surface/90 backdrop-blur">
           <div className="flex items-center gap-3 px-4 py-3 sm:px-6">
             <button
               type="button"
@@ -186,6 +225,7 @@ export default function Layout({ children }) {
             </span>
 
             <div className="flex items-center gap-2 border-l border-slate-200 pl-2 sm:pl-3">
+              <ThemeToggle />
               <div className="hidden text-right sm:block">
                 <p className="max-w-36 truncate text-xs font-semibold text-slate-700">{staffName}</p>
                 <p className="text-[11px] text-slate-400">
@@ -216,7 +256,7 @@ export default function Layout({ children }) {
           {children}
         </main>
 
-        <footer className="border-t border-slate-200 bg-white px-4 py-4 text-center text-xs text-slate-500 sm:px-6">
+        <footer className="border-t border-slate-200 bg-surface px-4 py-4 text-center text-xs text-slate-500 sm:px-6">
           &copy; {new Date().getFullYear()} {hospital.name}, {hospital.city}, {hospital.district},{" "}
           {hospital.state}. All rights reserved.
         </footer>

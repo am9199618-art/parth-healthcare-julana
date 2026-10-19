@@ -401,7 +401,7 @@ function SummaryModal({ record, onClose }) {
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-slate-900/50 p-4 backdrop-blur-sm sm:p-8">
       <div
-        className="w-full max-w-2xl rounded-xl bg-white shadow-2xl"
+        className="w-full max-w-2xl rounded-xl bg-surface shadow-2xl"
         role="dialog"
         aria-modal="true"
       >
