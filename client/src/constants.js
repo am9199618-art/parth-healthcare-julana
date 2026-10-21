@@ -5,7 +5,7 @@ export const HOSPITAL_FALLBACK = {
   city: "Julana",
   district: "Jind",
   state: "Haryana",
-  pincode: "126111",
+  pincode: "126114",
   phone: "9466317930",
   emergency: "9466317930",
   emergencyNote: "24x7 Emergency - Dr. Surrender",
